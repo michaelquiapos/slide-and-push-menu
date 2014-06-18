@@ -1,0 +1,83 @@
+#fc-header {
+
+}
+
+.mq-fc-header {
+	/*future proof - vendor prefixed
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	position: sticky;*/
+
+	background: rgba(0,0,0,0.8);
+	color: white;
+	font-size: 1em;
+	line-height: 1.6em;
+	max-width: 1280px;
+	box-sizing:border-box;
+
+	margin: auto;
+	padding: 100px 70px;
+	text-align: left;
+	z-index: 2;
+}
+
+.is-sticky .mq-fc-header {
+	height: 250px;
+	font-size: 0.8em;
+	max-width: 100%;
+	min-width: 1280px;
+	padding: 100px 400px;
+}
+
+.is-sticky .logo {
+	max-width: 20%;
+}
+
+@media screen and (max-width: 1025px) {
+	.mq-fc-header {
+		font-size: 1.4em;
+	}
+
+	.is-sticky .mq-fc-header {
+		font-size: 1.2em;
+		max-width: 50%;
+		min-width: 1025px;
+		padding: 90px 50px;
+	}
+
+	.is-sticky .logo {
+		max-width: 25%;
+	}
+}
+
+@media screen and (max-width: 966px) {
+
+}
+
+@media screen and (max-width: 740px) {
+	.mq-fc-header {
+		font-size: 0.9em;
+		padding: 80px 20px;
+		height: 200px;
+	}
+
+	.logo {
+		padding-top: 8px;
+		max-width: 20%;
+	}
+
+	.is-sticky .mq-fc-header {
+		font-size: 0.9em;
+		max-width: 50%;
+		min-width: 740px;
+		padding: 80px 20px;
+		height: 200px;
+	}
+
+	.is-sticky .logo {
+		padding-top: 8px;
+		max-width: 19.5%;
+	}
+}

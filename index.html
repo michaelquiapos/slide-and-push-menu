@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>BILL ADMINISTRATION | YCDC front facing interface</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Michael Quiapos" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/core.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+
+		<!-- toolbar.js -->
+		<link rel="stylesheet" type="text/css" href="css/toolbars.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.icons.css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.toolbar.js"></script>
+
+		<!-- sticky -->
+		<link rel="stylesheet" type="text/css" href="css/sticky.css" />
+		<script src="js/jquery.sticky.js"></script>
+
+		<!-- table -->
+		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<script src="js/jquery.tablesorter.min.js"></script>
+		
+		<!-- HiSRC -->
+		<script src="js/hisrc.js"></script>
+
+		<!-- initialize -->
+		<script type="text/javascript">
+			$(document).ready(function($) {
+				// initialize any icon actions before calling the toolbar			
+				$('#nav-main-user').toolbar({content: '#admin-section', position: 'right'});
+				$('#nav-main-config').toolbar({content: '#admin-config', position: 'right'});
+				$('#nav-main-bill').toolbar({content: '#admin-bill', position: 'right'});
+				// initialize sticky focus area
+				$("#fc-header").sticky({ topSpacing: 0 });
+				// initialize responsive table
+				$('table').tablesorter({cssAsc:'headerSortUp', cssDesc:'headerSortDown', cssHeader:'tbl-header'});
+				// initialize adaptive images
+				$('.hisrc img').hisrc();
+			});
+		</script>
+	</head>
+	<body class="mq-spmenu-push">
+		<div class="container">
+			<ul id="mq-menu" class="mq-menu-main">
+				<li class="mq-trigger">
+					<a class="mq-icon mq-icon-menu" title="Menu"><span>Menu</span></a>
+					<nav class="mq-menu-wrapper">
+						<div class="mq-scroller">
+							<ul class="mq-menu">
+								<li class="mq-search-item">
+									<input placeholder="Search" type="search" class="mq-search">
+									<a class="mq-icon mq-icon-search"><span>Search</span></a>
+								</li>
+								<li>
+									<a href="#user" id="nav-main-user" class="mq-icon mq-icon-download">User</a>
+									<ul id="admin-section" class="mq-submenu toolbar-icons" style="display: none;">
+										<li><a href="http://michaelquiapos.com" target="_new" class="mq-icon mq-icon-archive">User management</a></li>
+										<li><a href="#assignment" class="mq-icon mq-icon-cog">Assignment</a></li>
+										<li><a href="#api" class="mq-icon mq-icon-earth">API</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#configuration" id="nav-main-config" class="mq-icon mq-icon-download">Configuration</a>
+									<ul id="admin-config" class="mq-submenu toolbar-icons" style="display: none;">
+										<li><a href="http://michaelquiapos.com" class="mq-icon mq-icon-archive">User management</a></li>
+										<li><a href="#assignment" class="mq-icon mq-icon-cog">Assignment</a></li>
+										<li><a href="#api" class="mq-icon mq-icon-earth">API</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#bill" id="nav-main-bill" class="mq-icon mq-icon-download">Bill</a>
+									<ul id="admin-bill" class="mq-submenu toolbar-icons" style="display: none;">
+										<li><a href="http://michaelquiapos.com" class="mq-icon mq-icon-archive">User management</a></li>
+										<li><a href="#assignment" class="mq-icon mq-icon-cog">Assignment</a></li>
+										<li><a href="#api" class="mq-icon mq-icon-earth">API</a></li>
+									</ul>
+								</li>				
+								<!-- flush to bottom -->
+								<li><a href="#" class="mq-icon mq-icon-archive"></a></li>
+								<li><a href="#Help" class="mq-icon mq-icon-help">Help</a></li>
+								<li><a href="#Change password" class="mq-icon mq-icon-cog">Change password</a></li>
+								<li><a href="#Logout" class="mq-icon mq-icon-download">Logout</a></li>
+							</ul>
+						</div><!-- /mq-scroller -->
+					</nav>
+				</li>
+				<li><a href="http://michaelquiapos.com/soon" target="_new">About</a></li>
+				<li><a href="http://bit.ly/1jtLKvb" target="_blank">Showreel</a></li>
+				<li><a href="http://sg.linkedin.com/in/michaelquiapos" target="_blank">Contact</a></li>
+				<li><a href="#User Profile">User Profile</a></li>
+			</ul>
+			<header>
+				<div id="fc-header" class="mq-fc-header">
+					<div class="hisrc logo">
+						<img src="images/logo-en-lrg-lores.png"
+						data-hisrc="images/logo-en-lrg-hires.png"
+						data-lowbandwidth="images/logo-en-lrg-lo-bw.png"
+						alt="Yangon City Development Committe"/>
+					</div>
+					<h1>YCDC <span>Michael Quiapos is a <a href="http://michaelquiapos.com/soon" target="_new"> Design Engineer able to create massive digital experiences</a> for the world to consume.</span></h1>
+				</div>
+			</header>
+			
+			<!-- insert dynamic table data here with the FF markups -->
+			<section>
+		      <table class="tablesorter"> <!-- id="table" -->
+		        <thead>
+		          <div id="tbl-header"><h2 id="tbl-title">User Management</h2></div>
+		          <tr id="col-header">
+		            <th>no.</th>
+		            <th>name</th>
+		            <th>user group</th>
+		            <th>reset password</th>
+		            <th>status</th>
+		            <th>creation date</th>
+		            <th>last date of access</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <tr>
+		            <td><span>1<sup>st</sup></span><small> CEO</small></td>
+		            <td>Bimal Shah</td>
+		            <td><small>user group: </small>kings of leotech</td>
+		            <td><small>reset password: </small><span>2,922</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>january <span>20, 1993</span></td>
+		            <td><small>last date of access: </small>january <span>20, 1993</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>2<sup>nd</sup></span><small> project manager</small></td>
+		            <td>Wee Teck</td>
+		            <td><small>user group: </small>the wanderers</td>
+		            <td><small>reset password: </small><span>1,461</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>february <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>february <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>3<sup>rd</sup></span><small> bsa manager</small></td>
+		            <td>Daniel Cheong</td>
+		            <td><small>user group: </small>fatties no more</td>
+		            <td><small>reset password: </small><span>2,922</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>march <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>march <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>4<sup>th</sup></span><small> CTO</small></td>
+		            <td>Jonas Larsson</td>
+		            <td><small>user group: </small>the fit ones</td>
+		            <td><small>reset password: </small><span>1,461</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>april <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>april <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>5<sup>th</sup></span><small> marketing director</small></td>
+		            <td>Andres Varela</td>
+		            <td><small>user group: </small>gladiators</td>
+		            <td><small>reset password: </small><span>895</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>may <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>may <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>6<sup>th</sup></span><small> hr manager</small></td>
+		            <td>Shania Petunia</td>
+		            <td><small>user group: </small>happy feet</td>
+		            <td><small>reset password: </small><span>2,027</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>june <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>june <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>7<sup>th</sup></span><small> designer</small></td>
+		            <td>Michael Quiapos</td>
+		            <td><small>user group: </small>imagine trekkers</td>
+		            <td><small>reset password: </small><span>1,886</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>july <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>july <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>8<sup>th</sup></span><small> qa manager</small></td>
+		            <td>Wui Chung Hon</td>
+		            <td><small>user group: </small>brave venture</td>
+		            <td><small>reset password: </small><span>1,036</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>august <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>august <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>9<sup>th</sup></span><small> development</small></td>
+		            <td>Antti Johansson</td>
+		            <td><small>user group: </small>vistual team</td>
+		            <td><small>reset password: </small><span>2,922</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>september <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>september <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>10<sup>rd</sup></span><small> IT</small></td>
+		            <td>Gaven Henry</td>
+		            <td><small>user group: </small>my fitness wallet</td>
+		            <td><small>reset password: </small><span>2,840</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>october <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>october <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>11<sup>nd</sup></span><small> sales</small></td>
+		            <td>PJ Kershaw</td>
+		            <td><small>user group: </small>stress gone</td>
+		            <td><small>reset password: </small><span>4,422</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>november <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>november <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>12<sup>st</sup></span><small> development</small></td>
+		            <td>Ryan Pays</td>
+		            <td><small>user group: </small>brave venture</td>
+		            <td><small>reset password: </small><span>1,461</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>december <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>december <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>13<sup>th</sup></span><small> development</small></td>
+		            <td>Abdul Subahan</td>
+		            <td><small>user group: </small>the fit ones</td>
+		            <td><small>reset password: </small><span>2,041</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>january <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>january <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>14<sup>th</sup></span><small> IT</small></td>
+		            <td>Syamsul Bahtiar</td>
+		            <td><small>user group: </small>happy feet</td>
+		            <td><small>reset password: </small><span>881</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>february <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>february <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>15<sup>th</sup></span><small> development</small></td>
+		            <td>Syed Meerkasim Mustaffa</td>
+		            <td><small>user group: </small>high cholesterol</td>
+		            <td><small>reset password: </small><span>2,922</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>march <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>march <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>16<sup>th</sup></span><small> development</small></td>
+		            <td>Aung Win Myat</td>
+		            <td><small>user group: </small>my fitness wallet</td>
+		            <td><small>reset password: </small><span>1,461</span> days</td>
+		            <td><small>status: </small>active</td>
+		            <td><small>creation date: </small>april <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>april <span>22, 1995</span></td>
+		          </tr>
+		          <tr>
+		            <td><span>17<sup>th</sup></span><small> dunno</small></td>
+		            <td>Anna Huang</td>
+		            <td><small>user group: </small>happy feet</td>
+		            <td><small>reset password: </small><span>2,728</span> days</td>
+		            <td><small>status: </small>inactive</td>
+		            <td><small>creation date: </small>may <span>22, 1995</span></td>
+		            <td><small>last date of access: </small>may <span>22, 1995</span></td>
+		          </tr>
+		        </tbody>
+		      </table>
+		    </section>
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script src="js/gnmenu.js"></script>
+		<script>
+			new gnMenu( document.getElementById( 'mq-menu' ) );
+			var body = document.body;
+		</script>
+	</body>
+</html>
